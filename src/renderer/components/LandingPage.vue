@@ -65,7 +65,6 @@ export default ({
     color : #21abca;
     text-align: center;
     font-size: 2em;
-    padding-bottom: 15%;
   }
 
   body {
@@ -77,19 +76,18 @@ export default ({
     padding:3px;
     border:1px solid rgba(0, 102, 255, 0.514);
     border-block-start-color: blue;
-    border-block-end-color: red;
-    border-color: green;
-    -ms-scrollbar-base-color: black;
-    scrollbar-base-color: black;
-    border-inline-start-color: black;
-    caret-color: green;
     border-radius:5px;
     width:500px;
     height:600px;
     -ms-scroll-limit-x-min: 0px;
     word-wrap: physical;
-    scroll-behavior: initial;
-    
+    scroll-behavior: initial;  
+  }
+
+   textarea:focus {
+    caret-color: #21abfa;
+    outline: none;
+    box-shadow: 0 0 0 2pt rgb(27, 88, 202);
   }
 
   #wrapper {

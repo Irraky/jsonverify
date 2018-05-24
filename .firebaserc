@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "json-verify": "json-verify",
+    "default": "json-verify"
+  }
+}
