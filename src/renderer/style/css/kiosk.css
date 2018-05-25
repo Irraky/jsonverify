@@ -1,8 +1,22 @@
 
 ::-webkit-scrollbar{
   width:10px;
-  background:rgb(55, 81, 199);
+  background: rgb(199, 202, 218);
+  border-radius:4px;
 }
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgb(171, 174, 192); 
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px rgb(171, 174, 192);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(27, 65, 189, 0.5); 
+  box-shadow: inset 0 0 6px rgba(27, 65, 189, 0.5);
+}
+
 body, img {
   -moz-user-select: none;
   -webkit-user-select: none;
@@ -17,9 +31,6 @@ body, img {
 a {
   color: #fff;
   text-decoration: none;
-  &.btn{
-    text-decoration: none;
-  }
 }
 
 p, span {

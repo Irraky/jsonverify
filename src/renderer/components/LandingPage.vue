@@ -81,7 +81,6 @@ export default ({
     box-shadow: 0 0 0 2pt rgb(27, 88, 202);
     overflow-y: visible;
     
-    
   }
 
   #wrapper {
