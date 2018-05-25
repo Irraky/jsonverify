@@ -10,7 +10,7 @@
         <br>
       </div>
       <textarea v-model="myjson" type="text" placeholder="Place your JSON here"
-      name="text" id="text" cols="30" v-on:keyup="keymonitor" v-on:keydown="keymonitor">
+      name="text" id="text" cols="10" v-on:keyup="keymonitor" v-on:keydown="keymonitor">
       </textarea>
     </div>
     <div class="input">
@@ -92,22 +92,23 @@ export default ({
     padding:3px;
     border:1px solid rgba(0, 102, 255, 0.514);
     border-block-start-color: blue;
-    width:500px;
-    height:601px;
-    word-wrap: physical;
+    height:611px;
+    width: 500px;
     resize: none;
     overflow-y: hidden;
+    overflow-x: hidden;
     display:inline-block;
     margin-left: -10px;
     font-size: 16px;
     line-height: 20px;
     font-family: 'Source Sans Pro', sans-serif;
+    wrap: off;
+    white-space: pre
   }
 
   textarea:focus {
     caret-color: #21abfa;
-    outline: none;
-    overflow-y: visible;
+    overflow: visible;
   }
 
   #wrapper {
@@ -123,9 +124,10 @@ export default ({
     background-color: rgb(195, 198, 211);
     color: rgb(99, 51, 187);
     width:45px;
-    height: 605px;
+    height: 606px;
     float: left;
     padding-left: 25px;
+    padding-bottom: 9px;
     font-size: 16px;
     line-height: 20px;
     overflow: hidden;
