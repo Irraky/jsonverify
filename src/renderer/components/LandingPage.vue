@@ -4,10 +4,7 @@
       JSON verify
     </div>
     <textarea v-model="myjson" type="text" placeholder="Place your JSON here">
-
     </textarea>
-    <br>
-    <br>
     <select v-model="selected">
       <option disabled value="">Spaces for a tab</option>
       <option>2</option>
@@ -16,13 +13,13 @@
       <option>5</option>
     </select>
     <button v-on:click="check" v-if="selected">Test my JSON</button>
-    <div>{{ errortext }}</div>
+    <div>
+      {{ errortext }}
+    </div>
   </div>
 </template>
 
 <script>
-
-// var JSON = require('json-bourne')
 
 let data = {
   myjson: '',
@@ -54,13 +51,6 @@ export default ({
 <style>
   @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
 
-  * {
-    background-color: rgb(255, 255, 255);
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-
   .info {
     color : #21abca;
     text-align: center;
@@ -68,7 +58,8 @@ export default ({
   }
 
   body {
-    font-family: 'Source Sans Pro', sans-serif; 
+    font-family: 'Source Sans Pro', sans-serif;
+    overflow: hidden;
   }
 
   textarea {
@@ -79,15 +70,18 @@ export default ({
     border-radius:5px;
     width:500px;
     height:600px;
-    -ms-scroll-limit-x-min: 0px;
     word-wrap: physical;
-    scroll-behavior: initial;  
+    resize: none;
+    overflow-y: hidden;
   }
 
    textarea:focus {
     caret-color: #21abfa;
     outline: none;
     box-shadow: 0 0 0 2pt rgb(27, 88, 202);
+    overflow-y: visible;
+    
+    
   }
 
   #wrapper {
@@ -95,4 +89,5 @@ export default ({
     padding: 60px 80px;
     width: 100vw;
   }
+
 </style>
