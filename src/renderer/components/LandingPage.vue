@@ -1,7 +1,7 @@
 <template>
   <div id="wrapper">
     <div class="info">
-      JSON verify
+      JSON verifier
     </div>
     <div>
       <div id="myscroll" v-on:scroll="keymonitor">
