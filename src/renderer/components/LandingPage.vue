@@ -14,18 +14,19 @@
       </textarea>
     </div>
     <div class="input">
+      <button v-on:click="clear">Clear</button>
       <select v-model="selected">
-        <option disabled value="">Spaces for a tab</option>
+        <option disabled value="0">Spaces for a tab</option>
         <option>2</option>
         <option>3</option>
         <option>4</option>
         <option>5</option>
       </select>
       <button v-on:click="check" v-if="selected">Test my JSON</button>
-      </div>
-      <div v-if="error" class='error'>
-        {{ errortext }}
-      </div>
+    </div>
+    <div v-if="error" class='error'>
+      {{ errortext }}
+    </div>
   </div>
 </template>
 
@@ -73,7 +74,9 @@ export default {
       if (text.scrollTop != null) {
         scroll.scrollTop = text.scrollTop + 2
       }
-      console.log(text.scrollTop)
+    },
+    clear: function () {
+      this.myjson = ''
     }
   }
 }
