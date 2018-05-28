@@ -4,13 +4,13 @@
       JSON verify
     </div>
     <div>
-      <div class="numero" id="myscroll">
+      <div id="myscroll" v-on:scroll="keymonitor">
         0 <br>
         <span v-for="line in lines"> {{line}} <br> </span>
         <br>
       </div>
       <textarea v-model="myjson" type="text" placeholder="Place your JSON here"
-      name="text" id="text" cols="10" v-on:keyup="keymonitor" v-on:keydown="keymonitor">
+      name="text" id="text" cols="10" v-on:scroll="keymonitor" v-on:keyup="keymonitor" v-on:keydown="keymonitor">
       </textarea>
     </div>
     <div class="input">
@@ -38,7 +38,7 @@ let data = {
   error: false
 }
 
-export default ({
+export default {
   name: 'landingpage',
   data: function () {
     return data
@@ -56,7 +56,11 @@ export default ({
       }
       this.error = false
       this.errortext = ''
-      this.myjson = JSON.stringify(JSON.parse(this.myjson), null, parseInt(this.selected, 10))
+      this.myjson = JSON.stringify(
+        JSON.parse(this.myjson),
+        null,
+        parseInt(this.selected, 10)
+      )
     },
     keymonitor: function (event) {
       var text = document.getElementById('text')
@@ -66,85 +70,86 @@ export default ({
       } else {
         this.lines = 0
       }
-      scroll.scrollTop = text.scrollTop + 2
+      if (text.scrollTop != null) {
+        scroll.scrollTop = text.scrollTop + 2
+      }
       console.log(text.scrollTop)
     }
   }
-})
+}
 </script>
 
 <style>
-  @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro");
 
-  .info {
-    color : #21abca;
-    text-align: center;
-    font-size: 2em;
-  }
+.info {
+  color: #21abca;
+  text-align: center;
+  font-size: 2em;
+}
 
-  body {
-    font-family: 'Source Sans Pro', sans-serif;
-    overflow: hidden;
-  }
+body {
+  font-family: "Source Sans Pro", sans-serif;
+  overflow: hidden;
+}
 
-  textarea {
-    background-color: rgb(212, 215, 232);
-    padding:3px;
-    border:1px solid rgba(0, 102, 255, 0.514);
-    border-block-start-color: blue;
-    height:611px;
-    width: 500px;
-    resize: none;
-    overflow-y: hidden;
-    overflow-x: hidden;
-    display:inline-block;
-    margin-left: -10px;
-    font-size: 16px;
-    line-height: 20px;
-    font-family: 'Source Sans Pro', sans-serif;
-    wrap: off;
-    white-space: pre
-  }
+textarea {
+  background-color: rgb(212, 215, 232);
+  padding: 3px;
+  border: 1px solid rgba(0, 102, 255, 0.514);
+  border-block-start-color: blue;
+  height: 611px;
+  width: 500px;
+  resize: none;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  display: inline-block;
+  margin-left: -10px;
+  font-size: 16px;
+  line-height: 20px;
+  font-family: "Source Sans Pro", sans-serif;
+  wrap: off;
+  white-space: pre;
+}
 
-  textarea:focus {
-    caret-color: #21abfa;
-    overflow: visible;
-  }
+textarea:focus {
+  caret-color: #21abfa;
+  overflow: visible;
+}
 
-  #wrapper {
-    height: 100vh;
-    padding: 60px 80px;
-    width: 100vw;
-  }
+#wrapper {
+  height: 100vh;
+  padding: 60px 80px;
+  width: 100vw;
+}
 
+#myscroll {
+  font-family: "Source Sans Pro", sans-serif;
+  padding-top: 4px;
+  background-color: rgb(195, 198, 211);
+  color: rgb(99, 51, 187);
+  width: 45px;
+  height: 606px;
+  float: left;
+  padding-left: 25px;
+  padding-bottom: 9px;
+  font-size: 16px;
+  line-height: 20px;
+  scroll-behavior: unset;
+  overflow: hidden;
+  overflow-y: visible;
+}
 
-  .numero {
-    font-family: 'Source Sans Pro', sans-serif;
-    padding-top: 4px;
-    background-color: rgb(195, 198, 211);
-    color: rgb(99, 51, 187);
-    width:45px;
-    height: 606px;
-    float: left;
-    padding-left: 25px;
-    padding-bottom: 9px;
-    font-size: 16px;
-    line-height: 20px;
-    overflow: hidden;
-    overflow-y: visible;    
-  }
+.error {
+  margin-top: 10px;
+  color: rgb(0, 0, 0);
+  padding: 5px;
+  border: 2px solid rgb(255, 0, 0);
+  background: rgba(255, 0, 0, 0.678);
+  border-radius: 5px;
+}
 
-  .error {
-    margin-top: 10px;
-    color: rgb(0, 0, 0);
-    padding: 5px;
-    border:2px solid rgb(255, 0, 0);
-    background: rgba(255, 0, 0, 0.678);
-    border-radius:5px;
-  }
-
-  .input {
-    margin-top: 20px;
-  }
-
+.input {
+  margin-top: 20px;
+}
 </style>
