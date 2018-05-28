@@ -137,7 +137,6 @@ textarea:focus {
   line-height: 20px;
   scroll-behavior: unset;
   overflow: hidden;
-  overflow-y: visible;
 }
 
 .error {
