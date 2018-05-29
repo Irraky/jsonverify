@@ -1,4 +1,16 @@
 {
+  "spaces": [
+    {  
+      "name": "Spaces for a tab",
+      "value": null,
+      "attribut": "disabled"
+    },
+    {
+    "name": "un",
+    "value": 1,
+    "attribut": ""
+    }
+  ],
   "customSetting" : "defaultCustomSetting",
   "window" : {
     "width": 950,

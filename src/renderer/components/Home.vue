@@ -4,12 +4,12 @@
       JSON verifier
     </div>
     <div>
-      <div id="myscroll" v-on:scroll="keymonitor">
+      <div id="myscroll" v-on:scroll="keymonitor" ref="myscroll">
         0 <br>
         <span v-for="line in lines"> {{line}} <br> </span>
         <br>
       </div>
-      <textarea v-model="myjson" type="text" placeholder="Place your JSON here"
+      <textarea v-model="myjson" ref="text" id="text" type="text" placeholder="Place your JSON here"
         v-on:scroll="keymonitor" v-on:keyup="keymonitor" v-on:keydown="keymonitor">
       </textarea>
       <textarea v-model="result" type="text" placeholder="JSON Tree"
@@ -67,13 +67,13 @@ export default {
       )
     },
     keymonitor: function (event) {
-      if (this.myjson.value.match(/[\r\n]/g)) {
-        this.lines = this.myjson.value.match(/[\r\n]/g).length
+      if (this.$refs.text.value.match(/[\r\n]/g)) {
+        this.lines = this.$refs.text.value.match(/[\r\n]/g).length
       } else {
         this.lines = 0
       }
-      if (this.myscroll.scrollTop != null) {
-        this.myscroll.scrollTop = this.myjson.scrollTop + 2
+      if (this.$refs.scrollTop != null) {
+        this.$refs.myscroll.scrollTop = this.$refs.scrollTop + 2
       }
     },
     clear: function () {
