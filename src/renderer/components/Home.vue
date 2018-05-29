@@ -10,10 +10,10 @@
         <br>
       </div>
       <textarea v-model="myjson" type="text" placeholder="Place your JSON here"
-      name="text" id="text" v-on:scroll="keymonitor" v-on:keyup="keymonitor" v-on:keydown="keymonitor">
+        v-on:scroll="keymonitor" v-on:keyup="keymonitor" v-on:keydown="keymonitor">
       </textarea>
       <textarea v-model="result" type="text" placeholder="JSON Tree"
-      name="text" id="result" v-on:scroll="keymonitor" v-on:keyup="keymonitor" v-on:keydown="keymonitor">
+        v-on:scroll="keymonitor" v-on:keyup="keymonitor" v-on:keydown="keymonitor">
       </textarea>
     </div>
     <div class="input">
