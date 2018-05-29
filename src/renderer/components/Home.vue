@@ -2,8 +2,10 @@
   <div id="wrapper">
     <div class="info">
       JSON verifier
+      <router-link id="button" to="/About">About</router-link>
     </div>
     <div>
+      <!-- used ref as in API https://vuejs.org/v2/api/  -->
       <div id="myscroll" v-on:scroll="keymonitor" ref="myscroll">
         0 <br>
         <span v-for="line in lines"> {{line}} <br> </span>
@@ -18,6 +20,7 @@
     </div>
     <div class="input">
       <button v-on:click="clear">Clear</button>
+      <!-- Used https://forum.vuejs.org/t/how-to-conditionally-add-attributes-to-tag-inside-v-for/12817 to keep one disable option-->
       <select v-model='selected'>
         <option v-for="option in spaces" :key="option.key" :value="option.value" :disabled="option.disabled">
           {{option.text}}
@@ -138,6 +141,10 @@ textarea:focus {
   line-height: 20px;
   scroll-behavior: unset;
   overflow: hidden;
+}
+
+#button {
+  color: #26bee0;
 }
 
 .error {
