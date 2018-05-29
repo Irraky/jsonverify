@@ -15,70 +15,39 @@
         v-on:scroll="keymonitor" v-on:keyup="keymonitor" v-on:keydown="keymonitor">
       </textarea> -->
     </div>
-    <div class="input">
-      <button v-on:click="clear">Clear</button>
-      <!-- Used https://forum.vuejs.org/t/how-to-conditionally-add-attributes-to-tag-inside-v-for/12817 to keep one disable option-->
-      <select v-model='selected'>
-        <option v-for="option in spaces" :key="option.key" :value="option.value" :disabled="option.disabled">
-          {{option.text}}
-        </option>
-      </select>
-      <button v-on:click="check" v-if="selected">Test my JSON</button>
-    </div>
-    <div v-if="error" class='error'>
-      {{ errortext }}
-    </div>
+    <Footer :myjson="myjson" @update="onFooterUpdate"></Footer>
   </div>
 </template>
 
 <script type="text/javascript">
-import settings from '@/lib/settings'
 import Header from '@/components/MyHeader'
+import Footer from '@/components/MyFooter'
 
-const spaces = settings.spaces
 export default {
   name: 'home',
   components: {
-    Header
+    Header,
+    Footer
   },
   data: function () {
     return {
       myjson: '',
-      errortext: '',
-      result: '',
-      selected: null,
-      lines: 0,
-      error: false,
-      spaces
+      lines: 0
     }
   },
   methods: {
-    check: function () {
-      try {
-        JSON.parse(this.myjson)
-      } catch (err) {
-        if (err) {
-          this.error = true
-          this.errortext = '' + err
-          return
-        }
-      }
-      this.error = false
-      this.errortext = ''
-      this.myjson = JSON.stringify(JSON.parse(this.myjson), null, this.selected)
-    },
     keymonitor: function (event) {
       if (this.$refs.text.value.match(/[\r\n]/g)) {
         this.lines = this.$refs.text.value.match(/[\r\n]/g).length
       } else {
         this.lines = 0
       }
-      if (this.$refs.scrollTop != null) {
-        this.$refs.myscroll.scrollTop = this.$refs.scrollTop + 2
+      if (this.$refs.text.scrollTop != null) {
+        this.$refs.myscroll.scrollTop = this.$refs.text.scrollTop + 2
       }
     },
-    clear: function () {
-      this.myjson = ''
+    onFooterUpdate (newdata) {
+      this.myjson = newdata
     }
   }
 }
@@ -137,23 +106,6 @@ textarea:focus {
   line-height: 20px;
   scroll-behavior: unset;
   overflow: hidden;
-}
-
-#button {
-  color: #26bee0;
-}
-
-.error {
-  margin-top: 10px;
-  color: rgb(0, 0, 0);
-  padding: 5px;
-  border: 2px solid rgb(255, 0, 0);
-  background: rgba(255, 0, 0, 0.678);
-  border-radius: 5px;
-}
-
-.input {
-  margin-top: 20px;
 }
 
 </style>

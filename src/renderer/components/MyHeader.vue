@@ -12,4 +12,9 @@
   text-align: center;
   font-size: 2em;
 }
+
+#button {
+  color: #84c6d4;
+}
+
 </style>

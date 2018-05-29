@@ -1,7 +1,9 @@
 <template>
-  <div id="logodiv">
-    About
+  <div>
+    <h1 id="logodiv">About</h1>
+    <footer>
     <router-link id="button" to="/Home">Go to Home Page</router-link>
+    </footer>
   </div>
 </template>
 
@@ -12,14 +14,6 @@
 </script>
 
 <style>
-
-
-  * {
-    background-color: rgb(255, 255, 255);
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
 
   #logodiv {
     color: #21abca;
