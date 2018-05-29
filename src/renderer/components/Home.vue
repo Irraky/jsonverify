@@ -10,7 +10,10 @@
         <br>
       </div>
       <textarea v-model="myjson" type="text" placeholder="Place your JSON here"
-      name="text" id="text" cols="10" v-on:scroll="keymonitor" v-on:keyup="keymonitor" v-on:keydown="keymonitor">
+      name="text" id="text" v-on:scroll="keymonitor" v-on:keyup="keymonitor" v-on:keydown="keymonitor">
+      </textarea>
+      <textarea v-model="result" type="text" placeholder="JSON Tree"
+      name="text" id="result" v-on:scroll="keymonitor" v-on:keyup="keymonitor" v-on:keydown="keymonitor">
       </textarea>
     </div>
     <div class="input">
@@ -31,18 +34,18 @@
 </template>
 
 <script type="text/javascript">
-let data = {
-  myjson: '',
-  errortext: '',
-  selected: 0,
-  lines: 0,
-  error: false
-}
 
 export default {
-  name: 'landingpage',
+  name: 'home',
   data: function () {
-    return data
+    return {
+      myjson: '',
+      errortext: '',
+      result: '',
+      selected: 0,
+      lines: 0,
+      error: false
+    }
   },
   methods: {
     check: function () {
@@ -64,15 +67,13 @@ export default {
       )
     },
     keymonitor: function (event) {
-      var text = document.getElementById('text')
-      var scroll = document.getElementById('myscroll')
-      if (text.value.match(/[\r\n]/g)) {
-        this.lines = text.value.match(/[\r\n]/g).length
+      if (this.myjson.value.match(/[\r\n]/g)) {
+        this.lines = this.myjson.value.match(/[\r\n]/g).length
       } else {
         this.lines = 0
       }
-      if (text.scrollTop != null) {
-        scroll.scrollTop = text.scrollTop + 2
+      if (this.myscroll.scrollTop != null) {
+        this.myscroll.scrollTop = this.myjson.scrollTop + 2
       }
     },
     clear: function () {
