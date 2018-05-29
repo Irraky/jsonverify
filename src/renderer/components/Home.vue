@@ -1,9 +1,6 @@
 <template>
   <div id="wrapper">
-    <div class="info">
-      JSON verifier
-      <router-link id="button" to="/About">About</router-link>
-    </div>
+    <Header></Header>
     <div>
       <!-- used ref as in API https://vuejs.org/v2/api/  -->
       <div id="myscroll" v-on:scroll="keymonitor" ref="myscroll">
@@ -36,10 +33,14 @@
 
 <script type="text/javascript">
 import settings from '@/lib/settings'
+import Header from '@/components/MyHeader'
 
 const spaces = settings.spaces
 export default {
   name: 'home',
+  components: {
+    Header
+  },
   data: function () {
     return {
       myjson: '',
@@ -84,13 +85,8 @@ export default {
 </script>
 
 <style>
-@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro");
 
-.info {
-  color: #21abca;
-  text-align: center;
-  font-size: 2em;
-}
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro");
 
 body {
   font-family: "Source Sans Pro", sans-serif;
@@ -159,4 +155,5 @@ textarea:focus {
 .input {
   margin-top: 20px;
 }
+
 </style>

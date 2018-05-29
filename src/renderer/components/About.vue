@@ -1,6 +1,7 @@
 <template>
   <div id="logodiv">
     About
+    <router-link id="button" to="/Home">Go to Home Page</router-link>
   </div>
 </template>
 
