@@ -12,18 +12,16 @@
       <textarea v-model="myjson" ref="text" id="text" type="text" placeholder="Place your JSON here"
         v-on:scroll="keymonitor" v-on:keyup="keymonitor" v-on:keydown="keymonitor">
       </textarea>
-      <textarea v-model="result" type="text" placeholder="JSON Tree"
+      <!-- <textarea v-model="result" type="text" placeholder="JSON Tree"
         v-on:scroll="keymonitor" v-on:keyup="keymonitor" v-on:keydown="keymonitor">
-      </textarea>
+      </textarea> -->
     </div>
     <div class="input">
       <button v-on:click="clear">Clear</button>
-      <select v-model="selected">
-        <option disabled value="0">Spaces for a tab</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
+      <select v-model='selected'>
+        <option v-for="option in spaces" :key="option.key" :value="option.value" :disabled="option.disabled">
+          {{option.text}}
+        </option>
       </select>
       <button v-on:click="check" v-if="selected">Test my JSON</button>
     </div>
@@ -34,7 +32,9 @@
 </template>
 
 <script type="text/javascript">
+import settings from '@/lib/settings'
 
+const spaces = settings.spaces
 export default {
   name: 'home',
   data: function () {
@@ -42,9 +42,10 @@ export default {
       myjson: '',
       errortext: '',
       result: '',
-      selected: 0,
+      selected: null,
       lines: 0,
-      error: false
+      error: false,
+      spaces
     }
   },
   methods: {
@@ -60,11 +61,7 @@ export default {
       }
       this.error = false
       this.errortext = ''
-      this.myjson = JSON.stringify(
-        JSON.parse(this.myjson),
-        null,
-        parseInt(this.selected, 10)
-      )
+      this.myjson = JSON.stringify(JSON.parse(this.myjson), null, this.selected)
     },
     keymonitor: function (event) {
       if (this.$refs.text.value.match(/[\r\n]/g)) {

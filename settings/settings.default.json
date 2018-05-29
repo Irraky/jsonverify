@@ -1,14 +1,46 @@
 {
   "spaces": [
     {  
-      "name": "Spaces for a tab",
+      "text": "Spaces for a tab",
+      "key": 0,
       "value": null,
-      "attribut": "disabled"
+      "disabled": true
     },
     {
-    "name": "un",
-    "value": 1,
-    "attribut": ""
+      "text": "none",
+      "key": 1,
+      "value": 0,
+      "disabled": false
+    },
+    {
+      "text": "one",
+      "key": 2,
+      "value": 1,
+      "disabled": false
+    },
+    {
+      "text": "two",
+      "key": 3,
+      "value": 2,
+      "disabled": false
+    },
+    {
+      "text": "three",
+      "key": 4,      
+      "value": 3,
+      "disabled": false
+    },
+    {
+      "text": "four",
+      "key": 5,
+      "value": 4,
+      "disabled": false
+    },
+    {
+      "text": "five",
+      "key": 6,
+      "value": 5,
+      "disabled": false
     }
   ],
   "customSetting" : "defaultCustomSetting",
