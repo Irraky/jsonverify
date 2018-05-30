@@ -26,7 +26,6 @@ export default {
   ],
   data: function () {
     return {
-      result: '',
       selected: null,
       error: false,
       spaces
@@ -50,6 +49,7 @@ export default {
     },
     clear: function () {
       this.myjson = ''
+      this.$emit('update', this.myjson)
     }
   }
 }
