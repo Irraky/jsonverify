@@ -11,6 +11,7 @@
   color: #21abca;
   text-align: center;
   font-size: 2em;
+  margin-bottom: 25px;
 }
 
 #button {

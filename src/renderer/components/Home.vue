@@ -38,6 +38,7 @@ export default {
 body {
   font-family: "Source Sans Pro", sans-serif;
   overflow: hidden;
+  overflow-y: visible;
 }
 
 #wrapper {
