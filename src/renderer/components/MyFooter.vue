@@ -8,7 +8,7 @@
           {{option.text}}
         </option>
       </select>
-      <button v-on:click="check" v-if="selected">Test my JSON</button>
+      <button v-on:click="check" v-if="selected" >Test my JSON</button>
     </div>
     <div v-if="error" class='error'>
       {{ errortext }}
@@ -26,7 +26,7 @@ export default {
   ],
   data: function () {
     return {
-      selected: null,
+      selected: 0,
       error: false,
       spaces
     }
@@ -50,6 +50,8 @@ export default {
     clear: function () {
       this.myjson = ''
       this.$emit('update', this.myjson)
+      this.error = false
+      this.errortext = ''
     }
   }
 }

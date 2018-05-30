@@ -2,15 +2,9 @@
   "spaces": [
     {  
       "text": "Spaces for a tab",
-      "key": 0,
-      "value": null,
-      "disabled": true
-    },
-    {
-      "text": "none",
       "key": 1,
       "value": 0,
-      "disabled": false
+      "disabled": true
     },
     {
       "text": "one",
