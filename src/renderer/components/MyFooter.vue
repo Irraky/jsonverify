@@ -38,7 +38,6 @@ export default {
         JSON.parse(this.myjson)
       } catch (err) {
         if (err) {
-          console.log(err)
           this.error = true
           this.errortext = '' + err
           return
