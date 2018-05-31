@@ -10,7 +10,7 @@
       </select>
       <button v-on:click="check" v-if="selected" >Test my JSON</button>
     </div>
-    <div v-if="error" class='error'>
+    <div  v-if="error" class='error'>
       {{ errortext }}
     </div>
   </div>
@@ -26,9 +26,10 @@ export default {
   ],
   data: function () {
     return {
-      selected: 0,
+      selected: 2,
       error: false,
-      spaces
+      spaces,
+      errortext: ''
     }
   },
   methods: {
@@ -37,6 +38,7 @@ export default {
         JSON.parse(this.myjson)
       } catch (err) {
         if (err) {
+          console.log(err)
           this.error = true
           this.errortext = '' + err
           return
