@@ -68,7 +68,7 @@ export default {
 <style>
 
 textarea {
-  background-color: rgb(212, 215, 232);
+  background-color: rgb(251, 251, 255);
   padding: 3px;
   border: 1px solid rgba(0, 102, 255, 0.514);
   border-block-start-color: blue;
@@ -87,7 +87,7 @@ textarea {
 }
 
 .jsontree {
-  background-color: rgb(212, 215, 232);
+  background-color: rgb(251, 251, 255);
   padding: 3px;
   border: 1px solid rgba(0, 102, 255, 0.514);
   border-block-start-color: blue;
@@ -107,7 +107,7 @@ textarea:focus {
 }
 
 #myscroll {
-  background-color: rgb(195, 198, 211);
+  background-color: rgb(226, 226, 226);
   font-family: "Source Sans Pro", sans-serif;
   font-size: 16px;
   line-height: 20px;
