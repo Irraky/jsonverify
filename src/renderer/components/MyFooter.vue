@@ -13,6 +13,7 @@
     <div  v-if="error" class='error'>
       {{ errortext }}
     </div>
+    <router-link id="about" to="/About">About</router-link>
   </div>
 </template>
 
@@ -71,6 +72,13 @@ export default {
 
 .input {
   margin-top: 20px;
+}
+
+#about {
+  float: right;
+  font-size: 2em;
+  margin-right: 9%;
+  color: #84c6d4;
 }
 
 </style>

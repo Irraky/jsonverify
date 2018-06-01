@@ -33,7 +33,7 @@ export default {
     return {
       lines: 0,
       json: {
-        msg: 'demo of jsoneditor'
+        msg: 'json verifier'
       }
     }
   },
